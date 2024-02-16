@@ -11,4 +11,12 @@ public class SelectBox {
     private int id;
     private JButton button;
     //Methods
+    public SelectBox() {
+        this(42);
+    }
+    public SelectBox(int i) {
+        selected = false;
+        id = i;
+        button = new JButton();
+    }
 }
