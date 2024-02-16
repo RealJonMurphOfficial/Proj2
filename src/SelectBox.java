@@ -1,5 +1,4 @@
 import javax.swing.*;
-
 /**
  * Placeholder comment.
  * Add your name under author after working on this class.
@@ -18,5 +17,18 @@ public class SelectBox {
         selected = false;
         id = i;
         button = new JButton();
+    }
+    public boolean isSelected() {
+        return selected;
+    }
+    public int getId() {
+        return id;
+    }
+    public JButton getButton() {
+        return button;
+    }
+    public void toggle() {
+        selected = !selected;
+        //cosmetic change too
     }
 }
