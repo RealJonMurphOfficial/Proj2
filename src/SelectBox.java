@@ -27,8 +27,9 @@ public class SelectBox {
     public JButton getButton() {
         return button;
     }
-    public void toggle() {
+    public boolean toggle() {
         selected = !selected;
         //cosmetic change too
+        return selected;
     }
 }
