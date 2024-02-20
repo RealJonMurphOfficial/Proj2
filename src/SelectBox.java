@@ -29,7 +29,7 @@ public class SelectBox {
     }
     public boolean toggle() {
         selected = !selected;
-        //cosmetic change too
+        //cosmetic change too, change color of button depending on selected or not
         return selected;
     }
 }
