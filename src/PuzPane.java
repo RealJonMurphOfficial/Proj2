@@ -10,4 +10,6 @@ public class PuzPane extends JPanel {
     private JButton hint, finish;
     private JTextField clues, event;
     //Methods
+    //pass a puzzle to the constructor, implement actionListener, place hint and finish buttons
+    //use actionPerformed to call either Puzzle.showHint() or Puzzle.checkSelect().
 }
