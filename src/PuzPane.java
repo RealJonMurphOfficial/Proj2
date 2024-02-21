@@ -4,7 +4,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.*;
-
+/**
+ * Placeholder comment.
+ * Add your name under author after working on this class.
+ * @author Jonathan Murphy, Salim Jday,
+ */
 public class PuzPane extends JPanel {
     //Attributes
     private Puzzle puzzle;
