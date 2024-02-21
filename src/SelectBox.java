@@ -2,7 +2,11 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
-
+/**
+ * Placeholder comment.
+ * Add your name under author after working on this class.
+ * @author Jonathan Murphy, Salim Jday,
+ */
 public class SelectBox extends JPanel {
     //Attributes
     private boolean selected;
