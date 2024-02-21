@@ -1,5 +1,9 @@
 import java.util.ArrayList;
-
+/**
+ * Placeholder comment.
+ * Add your name under author after working on this class.
+ * @author Jonathan Murphy, Salim Jday,
+ */
 public abstract class Puzzle {
     //Attributes
     private int categories, items;
