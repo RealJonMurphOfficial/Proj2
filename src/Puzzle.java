@@ -44,7 +44,7 @@ public abstract class Puzzle {
         hints.add(hint);
     }
     public abstract boolean checkSelect();
-  */
+  /*
     public boolean checkSelect(){
       for (PuzGrid grid: grids){
           if (!grid.checkSelect()){
