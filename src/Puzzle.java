@@ -12,7 +12,10 @@ public abstract class Puzzle {
     private ArrayList<String> hints;
     //Methods
     public Puzzle(int nCat, int nItem) {
-        //set nCat to categories and nItem to items
+        this.categories = nCat;
+        this.items = nItem;
+        grids = new ArrayList<>();
+        hints = new ArrayList<>();
     }
     //getters and setters for use by subclasses
     public String getClues() {
@@ -25,16 +28,17 @@ public abstract class Puzzle {
         return grids;
     }
     public String showHint() {
-        return "take remove hint from hints";
+        return hints.remove(0);
     }
     public void setClues(String cList) {
         clues = cList;
     }
     public void addGrid(PuzGrid grid) {
         //add grid to grids
+        grids.add(grid);
     }
     public void addHint(String hint) {
-        //add hint to hints
+        hints.add(hint);
     }
     public abstract boolean checkSelect();
 }
