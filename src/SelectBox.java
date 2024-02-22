@@ -1,8 +1,9 @@
 import javax.swing.*;
+import java.awt.*;
 /**
  * Placeholder comment.
  * Add your name under author after working on this class.
- * @author Jonathan Murphy, Ian Chung
+ * @author Jonathan Murphy, Salim Jday, Ian Chung
  */
 public class SelectBox {
     //Attributes
@@ -10,22 +11,16 @@ public class SelectBox {
     private int id;
     private JButton button;
     //Methods
-    public SelectBox(int id) {
-        this.id = id;
-        selected = false;
-        button = new JButton();
-        //this(42);
+    public SelectBox() {
+        this(42);
     }
     public SelectBox(int i) {
         selected = false;
         id = i;
-        button = new JButton();
+        button = new JButton("" + i);
     }
     public boolean isSelected() {
         return selected;
-    }
-    public void setSelected(boolean selected){
-        this.selected = selected;
     }
     public int getId() {
         return id;
@@ -35,7 +30,7 @@ public class SelectBox {
     }
     public boolean toggle() {
         selected = !selected;
-        //cosmetic change too, change color of button depending on selected or not
+        button.setBackground(selected ? Color.GREEN : Color.WHITE);
         return selected;
     }
 }
