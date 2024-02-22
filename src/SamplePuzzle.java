@@ -2,7 +2,7 @@ import java.util.ArrayList;
 /**
  * Placeholder comment.
  * Add your name under author after working on this class.
- * @author Jonathan Murphy, Ian Chung
+ * @author Jonathan Murphy,
  */
 public class SamplePuzzle extends Puzzle {
     //Attributes
