@@ -56,9 +56,12 @@ public class PuzPane extends JPanel implements ActionListener {
         add(topPanel, BorderLayout.NORTH);
 
         ArrayList<PuzGrid> grids = puzzle.getGrids();
-        for (PuzGrid grid : grids) {
+        add(grids.get(0), BorderLayout.WEST);
+        add(grids.get(1), BorderLayout.CENTER);
+        add(grids.get(2), BorderLayout.EAST);
+        /*for (PuzGrid grid : grids) {
             add(grid, BorderLayout.CENTER);
-        }
+        }*/
     }
     public void actionPerformed(ActionEvent event) {
         if(event.getSource().equals(hint)) {
