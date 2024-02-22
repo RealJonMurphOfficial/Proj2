@@ -29,17 +29,19 @@ public class PuzPane extends JPanel implements ActionListener {
         topPanel.add(clues);
 
         hint = new JButton("Hint");
-        hint.addActionListener(new ActionListener() {
+        hint.addActionListener(this);
+        /*hint.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String hint = puzzle.showHint();
                 JOptionPane.showMessageDialog(null, hint);
             }
-        });
+        });*/
         topPanel.add(hint);
 
         finish = new JButton("Finish");
-        finish.addActionListener(new ActionListener() {
+        finish.addActionListener(this);
+        /*finish.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (puzzle.checkSelect()) {
@@ -48,7 +50,7 @@ public class PuzPane extends JPanel implements ActionListener {
                     JOptionPane.showMessageDialog(null, "Please try again.");
                 }
             }
-        });
+        });*/
         topPanel.add(finish);
 
         add(topPanel, BorderLayout.NORTH);
@@ -59,6 +61,16 @@ public class PuzPane extends JPanel implements ActionListener {
         }
     }
     public void actionPerformed(ActionEvent event) {
-        //
+        if(event.getSource().equals(hint)) {
+            String hint = puzzle.showHint();
+            JOptionPane.showMessageDialog(null, hint);
+        }
+        else if(event.getSource().equals(finish)) {
+            if (puzzle.checkSelect()) {
+                JOptionPane.showMessageDialog(null, "Congratulations! You've solved the puzzle.");
+            } else {
+                JOptionPane.showMessageDialog(null, "Please try again.");
+            }
+        }
     }
 }

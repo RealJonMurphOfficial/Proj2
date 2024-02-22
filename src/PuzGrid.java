@@ -45,6 +45,7 @@ public class PuzGrid extends JPanel implements ActionListener {
 
         for (int i = 0; i < gSolution.size(); i++) {
             selections.get(gSolution.get(i)).toggle();
+            selected++;
             labels.get(gSolution.get(i)).setBackground(Color.GREEN);
         }
     }

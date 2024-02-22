@@ -17,7 +17,7 @@ public class SelectBox {
     public SelectBox(int i) {
         selected = false;
         id = i;
-        button = new JButton();
+        button = new JButton("" + i);
     }
     public boolean isSelected() {
         return selected;
