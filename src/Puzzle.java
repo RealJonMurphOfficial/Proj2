@@ -2,7 +2,7 @@ import java.util.ArrayList;
 /**
  * Placeholder comment.
  * Add your name under author after working on this class.
- * @author Jonathan Murphy, Ian Chung
+ * @author Jonathan Murphy, Ian Chung, Salim Jday
  */
 public abstract class Puzzle {
     //Attributes
@@ -28,7 +28,12 @@ public abstract class Puzzle {
         return grids;
     }
     public String showHint() {
-        return hints.remove(0);
+        if (hints.isEmpty()) {
+            return "No hints available.";
+        }
+        String hint = hints.get(0);
+        hints.remove(0);
+        return hint;
     }
     public void setClues(String cList) {
         clues = cList;

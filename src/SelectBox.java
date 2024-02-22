@@ -1,8 +1,9 @@
 import javax.swing.*;
+import java.awt.*;
 /**
  * Placeholder comment.
  * Add your name under author after working on this class.
- * @author Jonathan Murphy,
+ * @author Jonathan Murphy, Salim Jday, Ian Chung
  */
 public class SelectBox {
     //Attributes
@@ -29,7 +30,7 @@ public class SelectBox {
     }
     public boolean toggle() {
         selected = !selected;
-        //cosmetic change too, change color of button depending on selected or not
+        button.setBackground(selected ? Color.GREEN : Color.WHITE);
         return selected;
     }
 }
