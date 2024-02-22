@@ -1,13 +1,14 @@
-import java.awt.BorderLayout;
-import java.awt.FlowLayout;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.*;
 /**
- * Placeholder comment.
- * Add your name under author after working on this class.
+ * A JPanel that contains a basic puzzle game.
+ * Loads a Puzzle object containing a number of grids of toggleable buttons.
+ * Allows the user to request hints and check their answers at the push of a button
  * @author Jonathan Murphy, Salim Jday,
+ * @version 1.0
  */
 public class PuzPane extends JPanel implements ActionListener {
     //Attributes
@@ -15,9 +16,13 @@ public class PuzPane extends JPanel implements ActionListener {
     private JButton hint, finish;
     private JTextField clues, event;
 
-    //Constructor
-    public PuzPane(Puzzle puzzle) {
-        this.puzzle = puzzle;
+    /**
+     * Primary constructor. Places clue textField and the hint and finish buttons on the panel.
+     * Accepts a Puzzle subclass and displays its PuzGrid panels on the primary panel for proper use.
+     * @param p Puzzle subclass set to puzzle attribute
+     */
+    public PuzPane(Puzzle p) {
+        puzzle = p;
 
         setLayout(new BorderLayout());
 
@@ -56,13 +61,26 @@ public class PuzPane extends JPanel implements ActionListener {
         add(topPanel, BorderLayout.NORTH);
 
         ArrayList<PuzGrid> grids = puzzle.getGrids();
-        add(grids.get(0), BorderLayout.WEST);
+        JPanel gPane = new JPanel();
+        int gSize = puzzle.getItems() - 1;
+        gPane.setLayout(new GridLayout(gSize, gSize));
+        for(PuzGrid grid : grids) {
+            gPane.add(grid);
+        }
+        add(gPane, BorderLayout.CENTER);
+        /*add(grids.get(0), BorderLayout.WEST);
         add(grids.get(1), BorderLayout.CENTER);
-        add(grids.get(2), BorderLayout.EAST);
+        add(grids.get(2), BorderLayout.EAST);*/
         /*for (PuzGrid grid : grids) {
             add(grid, BorderLayout.CENTER);
         }*/
     }
+    /**
+     * Recieves input from hint or finish buttons and displays a message on a JOptionPane.
+     * When hint is pressed, calls Puzzle.showHint() and displays the result.
+     * When finish is pressed, uses Puzzle.checkSelect() to determine if the answer is correct and gives proper feedback.
+     * @param event input from ActionListener
+     */
     public void actionPerformed(ActionEvent event) {
         if(event.getSource().equals(hint)) {
             String hint = puzzle.showHint();

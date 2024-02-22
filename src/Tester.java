@@ -1,8 +1,9 @@
 import javax.swing.*;
 /**
- * Placeholder comment.
- * Add your name under author after working on this class.
+ * Tester class/main method for PuzPane and Puzzle classes
+ * Displays an instance of PuzPane containing SamplePuzzle on a JFrame.
  * @author Jonathan Murphy, Salim Jday,
+ * @version 1.0
  */
 public class Tester {
     public static void main(String[] args) {
