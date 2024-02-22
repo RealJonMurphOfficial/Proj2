@@ -1,11 +1,13 @@
-import javax.swing.*;
+import java.awt.Color;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import javax.swing.*;
 /**
  * Placeholder comment.
  * Add your name under author after working on this class.
- * @author Jonathan Murphy,
+ * @author Jonathan Murphy, Salim Jday,
  */
 public class PuzGrid extends JPanel implements ActionListener {
     //Attributes
@@ -14,35 +16,59 @@ public class PuzGrid extends JPanel implements ActionListener {
     private ArrayList<SelectBox> selections;
     private ArrayList<String> catX, catY;
     private ArrayList<JTextField> labels;
-    //Methods
+
+    //Constructor
     public PuzGrid(int gSize, ArrayList<Integer> gSolution, ArrayList<String> cat1, ArrayList<String> cat2) {
-        //still need to set panel size, place buttons and text fields on panels, these can be handled later
         size = gSize;
-        selected = 0;
+        selected = 0;//number of boxes selected
         solutions = gSolution;
         catX = cat1;
         catY = cat2;
         selections = new ArrayList<>();
-        labels = new ArrayList<>();//labels should display the items to be matched on the grid, unsure how
-        // that will pan out
-        for(int i = 0; i < (size * size); i++) {
-            selections.add(new SelectBox(i));
-            //set positions of buttons: selections.get(i).getButton(),
+        labels = new ArrayList<>();
+
+        setLayout(new GridLayout(size, size));
+
+        for (int i = 0; i < (size * size); i++) {
+            JTextField label = new JTextField();
+            label.setEditable(false);
+            label.setHorizontalAlignment(JTextField.CENTER);
+            label.setText(catX.get(i / size) + " - " + catY.get(i % size));
+            labels.add(label);
+            add(label);
+
+            SelectBox selectBox = new SelectBox(i);
+            selections.add(selectBox);
+            add(selectBox.getButton());
+        }
+
+        for (int i = 0; i < gSolution.size(); i++) {
+            selections.get(gSolution.get(i)).toggle();
+            labels.get(gSolution.get(i)).setBackground(Color.GREEN);
         }
     }
+
     public boolean checkSelect() {
-        if(size != selected){
+        if (size != selected) {
             return false;
         }
-        for(Integer i : solutions) {
-            if(!selections.get(i).isSelected()) {
+        for (Integer i : solutions) {
+            if (!selections.get(i).isSelected()) {
                 return false;
             }
         }
         return true;
     }
+
+    @Override
     public void actionPerformed(ActionEvent event) {
-        //search selections list for the correct button, event.equals(selections.get(i).getButton())
-        // then toggle the associated box
+        for (int i = 0; i < selections.size(); i++) {
+            if (event.getSource().equals(selections.get(i).getButton())) {
+                selections.get(i).toggle();
+                labels.get(i).setBackground(selections.get(i).isSelected() ? Color.GREEN : Color.WHITE);
+                selected = (selected == 0) ? i : 0;//
+                break;
+            }
+        }
     }
 }
