@@ -42,7 +42,7 @@ public class PuzGrid extends JPanel implements ActionListener {
             add(selectBox.getButton());
             selections.get(i).getButton().addActionListener(this);
         }
-
+        //loop for testing purposes, should be commented out before submission
         for (int i = 0; i < gSolution.size(); i++) {
             selections.get(gSolution.get(i)).toggle();
             selected++;
@@ -89,7 +89,7 @@ public class PuzGrid extends JPanel implements ActionListener {
                     selected--;
                 }
                 labels.get(i).setBackground(selections.get(i).isSelected() ? Color.GREEN : Color.WHITE);
-                //selected = (selected == 0) ? i : 0;//
+                //selected = (selected == 0) ? i : 0;
                 break;
             }
         }
