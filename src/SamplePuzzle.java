@@ -62,6 +62,16 @@ public class SamplePuzzle extends Puzzle {
         super.addHint("Sample hint 2");
     }
 
+    public ArrayList<String> getCat1() {
+        return cat1;
+    }
+    public ArrayList<String> getCat2() {
+        return cat2;
+    }
+    public ArrayList<String> getCat3() {
+        return cat3;
+    }
+
     @Override
     public boolean checkSelect() {
         for (PuzGrid grid : super.getGrids()) {
@@ -70,5 +80,27 @@ public class SamplePuzzle extends Puzzle {
             }
         }
         return true;
+    }
+    /**
+     * Compares this Object to another.
+     * @param o Object to be compared
+     * @return true if Object o is the same as this Object
+     */
+    @Override
+    public boolean equals(Object o) {
+        if(super.equals(o) && getClass() == o.getClass()) {
+            if(cat1.equals(((SamplePuzzle) o).getCat1()) && cat2.equals(((SamplePuzzle) o).getCat2()) && cat3.equals(((SamplePuzzle) o).getCat3())) {
+                return true;
+            }
+        }
+        return false;
+    }
+    /**
+     * Returns a String containing information regarding the object's attributes.
+     * @return String listing object's key attributes
+     */
+    @Override
+    public String toString() {
+        return "SamplePuzzle: " + super.toString();
     }
 }

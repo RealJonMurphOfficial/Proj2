@@ -12,14 +12,17 @@ public abstract class Puzzle {
     private ArrayList<String> hints;
     //Methods
     public Puzzle(int nCat, int nItem) {
-        this.categories = nCat;
-        this.items = nItem;
+        categories = nCat;
+        items = nItem;
         grids = new ArrayList<>();
         hints = new ArrayList<>();
     }
     //getters and setters for use by subclasses
     public String getClues() {
         return clues;
+    }
+    public int getCategories() {
+        return categories;
     }
     public int getItems() {
         return items;
@@ -45,4 +48,30 @@ public abstract class Puzzle {
         hints.add(hint);
     }
     public abstract boolean checkSelect();
+    /**
+     * Compares this Object to another.
+     * @param o Object to be compared
+     * @return true if Object o is the same as this Object
+     */
+    @Override
+    public boolean equals(Object o) {
+        if(super.equals(o) && getClass() == o.getClass()) {
+            if(categories == ((Puzzle) o).getCategories() && items == ((Puzzle) o).getItems() && clues.equals(((Puzzle) o).getClues()) && grids.equals(((Puzzle) o).getGrids())) {
+                return true;
+            }
+        }
+        return false;
+    }
+    /**
+     * Returns a String containing information regarding the object's attributes.
+     * @return String listing object's key attributes
+     */
+    @Override
+    public String toString() {
+        String result = categories + " X " + items + " puzzle.\nContains Grids:";
+        for(PuzGrid grid : grids) {
+            result += "\n" + grid.toString();
+        }
+        return result;
+    }
 }

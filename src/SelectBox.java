@@ -33,6 +33,11 @@ public class SelectBox {
         button.setBackground(selected ? Color.GREEN : Color.WHITE);
         return selected;
     }
+    /**
+     * Compares this Object to another.
+     * @param o Object to be compared
+     * @return true if Object o is the same as this Object
+     */
     @Override
     public boolean equals(Object o) {
         if(super.equals(o) && getClass() == o.getClass()) {
@@ -42,6 +47,10 @@ public class SelectBox {
         }
         return false;
     }
+    /**
+     * Returns a String containing information regarding the object's attributes.
+     * @return String listing object's key attributes
+     */
     @Override
     public String toString() {
         String result = "SelectBox ID: " + id;

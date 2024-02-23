@@ -14,8 +14,14 @@ public class PuzPane extends JPanel implements ActionListener {
     //Attributes
     private Puzzle puzzle;
     private JButton hint, finish;
-    private JTextField clues, event;
-
+    private JTextField clues;
+    //Methods
+    /**
+     * Default constructor. Passes a new SamplePuzzle to the primary constructor.
+     */
+    public PuzPane() {
+        this(new SamplePuzzle());
+    }
     /**
      * Primary constructor. Places clue textField and the hint and finish buttons on the panel.
      * Accepts a Puzzle subclass and displays its PuzGrid panels on the primary panel for proper use.
@@ -76,6 +82,13 @@ public class PuzPane extends JPanel implements ActionListener {
         }*/
     }
     /**
+     * Basic getter.
+     * @return attribute Puzzle puzzle
+     */
+    public Puzzle getPuzzle() {
+        return puzzle;
+    }
+    /**
      * Recieves input from hint or finish buttons and displays a message on a JOptionPane.
      * When hint is pressed, calls Puzzle.showHint() and displays the result.
      * When finish is pressed, uses Puzzle.checkSelect() to determine if the answer is correct and gives proper feedback.
@@ -93,5 +106,27 @@ public class PuzPane extends JPanel implements ActionListener {
                 JOptionPane.showMessageDialog(null, "Please try again.");
             }
         }
+    }
+    /**
+     * Compares this Object to another.
+     * @param o Object to be compared
+     * @return true if Object o is the same as this Object
+     */
+    @Override
+    public boolean equals(Object o) {
+        if(super.equals(o) && getClass() == o.getClass()) {
+            if(puzzle.equals(((PuzPane) o).getPuzzle())) {
+                return true;
+            }
+        }
+        return false;
+    }
+    /**
+     * Returns a String containing information regarding the object's attributes.
+     * @return String listing object's key attributes
+     */
+    @Override
+    public String toString() {
+        return "Displaying Puzzle: " + puzzle.toString();
     }
 }

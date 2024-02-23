@@ -50,6 +50,22 @@ public class PuzGrid extends JPanel implements ActionListener {
         }
     }
 
+    public int getGSize() {
+        return size;
+    }
+    public int getSelected() {
+        return selected;
+    }
+    public ArrayList<Integer> getSolutions() {
+        return solutions;
+    }
+    public ArrayList<String> getCatX() {
+        return catX;
+    }
+    public ArrayList<String> getCatY() {
+        return catY;
+    }
+
     public boolean checkSelect() {
         if (size != selected) {
             return false;
@@ -77,5 +93,48 @@ public class PuzGrid extends JPanel implements ActionListener {
                 break;
             }
         }
+    }
+    /**
+     * Compares this Object to another.
+     * @param o Object to be compared
+     * @return true if Object o is the same as this Object
+     */
+    @Override
+    public boolean equals(Object o) {
+        if(super.equals(o) && getClass() == o.getClass()) {
+            if(size == ((PuzGrid) o).getGSize() && selected == ((PuzGrid) o).getSelected() && solutions.equals(((PuzGrid) o).getSolutions()) && catX.equals(((PuzGrid) o).getCatX()) && catY.equals(((PuzGrid) o).getCatY())) {
+                return true;
+            }
+        }
+        return false;
+    }
+    /**
+     * Returns a String containing information regarding the object's attributes.
+     * @return String listing object's key attributes
+     */
+    @Override
+    public String toString() {
+        String result = "Grid size: " + size + "\nCat1 displays: ";
+        for(int i = 0; i < catX.size(); i++) {
+            result += catX.get(i);
+            if(i < catX.size() - 1) {
+                result += ", ";
+            }
+        }
+        result += "\nCat2 displays";
+        for(int i = 0; i < catY.size(); i++) {
+            result += catY.get(i);
+            if(i < catY.size() - 1) {
+                result += ", ";
+            }
+        }
+        result += "\nSolution indices: ";
+        for(int i = 0; i < solutions.size(); i++) {
+            result += solutions.get(1);
+            if(i < solutions.size() - 1) {
+                result += ", ";
+            }
+        }
+        return result;
     }
 }
