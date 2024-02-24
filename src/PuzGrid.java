@@ -5,9 +5,10 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.*;
 /**
- * Placeholder comment.
- * Add your name under author after working on this class.
- * @author Jonathan Murphy, Salim Jday,
+ * Creates a grid of buttons and labels to be used in a puzzle.
+ * A sub panel that provides the primary function of the puzzle.
+ * @author Jonathan Murphy, Salim Jday
+ * @version 1.0
  */
 public class PuzGrid extends JPanel implements ActionListener {
     //Attributes
@@ -20,11 +21,12 @@ public class PuzGrid extends JPanel implements ActionListener {
     //Methods
     /**
      * Constructor.
-     * Creates a grid of SelectBoxes and labels
-     * @param gSize
-     * @param gSolution
-     * @param cat1
-     * @param cat2
+     * Creates a grid of SelectBoxes and labels with size * size items.
+     * Displays necessary information and stores a solution set.
+     * @param gSize int set to size
+     * @param gSolution ArrayList<Integer> set to solutions
+     * @param cat1 ArrayList<String> set to catX
+     * @param cat2 ArrayList<String> set to catY
      */
     public PuzGrid(int gSize, ArrayList<Integer> gSolution, ArrayList<String> cat1, ArrayList<String> cat2) {
         size = gSize;
@@ -109,8 +111,8 @@ public class PuzGrid extends JPanel implements ActionListener {
         return true;
     }
     /**
-     *
-     * @param event
+     * Determines which button was clicked, then calls toggle() on the associated SelectBox.
+     * @param event input from ActionListener
      */
     @Override
     public void actionPerformed(ActionEvent event) {

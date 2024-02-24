@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 /**
  * A subclass of Puzzle. Loads a 3 X 4 puzzle with 3 grids and very basic categories
- * The answers are:
+ * The answers are: A-1, A-2, A-3, A-4, A-a, A-b, A-c, A-d, 1-a, 1-b, 1-c, 1-d
  * @author Jonathan Murphy, Salim Jday
  * @version 1.0
  */
@@ -9,7 +9,9 @@ public class SamplePuzzle extends Puzzle {
     //Attributes
     private ArrayList<String> cat1, cat2, cat3;
 
-    //Constructor
+    /**
+     * Constructor. Passes the values for a 3 by 4 sample puzzle to the superclass.
+     */
     public SamplePuzzle() {
         super(3, 4);
         cat1 = new ArrayList<>();
@@ -84,6 +86,10 @@ public class SamplePuzzle extends Puzzle {
         return cat3;
     }
 
+    /**
+     * Calls checkSelect for each PuzGrid in grids list.
+     * @return true if each PuzGrid.checkSelect() is true
+     */
     @Override
     public boolean checkSelect() {
         for (PuzGrid grid : super.getGrids()) {
