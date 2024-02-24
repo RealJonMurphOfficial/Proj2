@@ -41,27 +41,10 @@ public class PuzPane extends JPanel implements ActionListener {
 
         hint = new JButton("Hint");
         hint.addActionListener(this);
-        /*hint.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String hint = puzzle.showHint();
-                JOptionPane.showMessageDialog(null, hint);
-            }
-        });*/
         topPanel.add(hint);
 
         finish = new JButton("Finish");
         finish.addActionListener(this);
-        /*finish.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (puzzle.checkSelect()) {
-                    JOptionPane.showMessageDialog(null, "Congratulations! You've solved the puzzle.");
-                } else {
-                    JOptionPane.showMessageDialog(null, "Please try again.");
-                }
-            }
-        });*/
         topPanel.add(finish);
 
         add(topPanel, BorderLayout.NORTH);
@@ -74,12 +57,6 @@ public class PuzPane extends JPanel implements ActionListener {
             gPane.add(grid);
         }
         add(gPane, BorderLayout.CENTER);
-        /*add(grids.get(0), BorderLayout.WEST);
-        add(grids.get(1), BorderLayout.CENTER);
-        add(grids.get(2), BorderLayout.EAST);*/
-        /*for (PuzGrid grid : grids) {
-            add(grid, BorderLayout.CENTER);
-        }*/
     }
     /**
      * Basic getter.

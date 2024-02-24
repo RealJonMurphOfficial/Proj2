@@ -1,8 +1,9 @@
 import java.util.ArrayList;
 /**
- * Placeholder comment.
- * Add your name under author after working on this class.
- * @author Jonathan Murphy, Salim Jday,
+ * A subclass of Puzzle. Loads a 3 X 4 puzzle with 3 grids and very basic categories
+ * The answers are:
+ * @author Jonathan Murphy, Salim Jday
+ * @version 1.0
  */
 public class SamplePuzzle extends Puzzle {
     //Attributes
@@ -61,13 +62,24 @@ public class SamplePuzzle extends Puzzle {
         super.addHint("Sample hint 1");
         super.addHint("Sample hint 2");
     }
-
+    /**
+     * Basic getter.
+     * @return attribute ArrayList<String> cat1
+     */
     public ArrayList<String> getCat1() {
         return cat1;
     }
+    /**
+     * Basic getter.
+     * @return attribute ArrayList<String> cat2
+     */
     public ArrayList<String> getCat2() {
         return cat2;
     }
+    /**
+     * Basic getter.
+     * @return attribute ArrayList<String> cat3
+     */
     public ArrayList<String> getCat3() {
         return cat3;
     }

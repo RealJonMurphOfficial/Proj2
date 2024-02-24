@@ -17,7 +17,15 @@ public class PuzGrid extends JPanel implements ActionListener {
     private ArrayList<String> catX, catY;
     private ArrayList<JTextField> labels;
 
-    //Constructor
+    //Methods
+    /**
+     * Constructor.
+     * Creates a grid of SelectBoxes and labels
+     * @param gSize
+     * @param gSolution
+     * @param cat1
+     * @param cat2
+     */
     public PuzGrid(int gSize, ArrayList<Integer> gSolution, ArrayList<String> cat1, ArrayList<String> cat2) {
         size = gSize;
         selected = 0;//number of boxes selected
@@ -43,29 +51,52 @@ public class PuzGrid extends JPanel implements ActionListener {
             selections.get(i).getButton().addActionListener(this);
         }
         //loop for testing purposes, should be commented out before submission
-        for (int i = 0; i < gSolution.size(); i++) {
+        /*for (int i = 0; i < gSolution.size(); i++) {
             selections.get(gSolution.get(i)).toggle();
             selected++;
             labels.get(gSolution.get(i)).setBackground(Color.GREEN);
-        }
+        }*/
     }
 
+    /**
+     * Basic getter.
+     * @return attribute int size
+     */
     public int getGSize() {
         return size;
     }
+    /**
+     * Basic getter.
+     * @return attribute int selected
+     */
     public int getSelected() {
         return selected;
     }
+    /**
+     * Basic getter.
+     * @return attribute ArrayList<String> solutions
+     */
     public ArrayList<Integer> getSolutions() {
         return solutions;
     }
+    /**
+     * Basic getter.
+     * @return attribute ArrayList<String> catX
+     */
     public ArrayList<String> getCatX() {
         return catX;
     }
+    /**
+     * Basic getter.
+     * @return attribute ArrayList<String> catY
+     */
     public ArrayList<String> getCatY() {
         return catY;
     }
-
+    /**
+     * Checks the selection list and selected value for the proper solutions and correct number of selections.
+     * @return true if all SelectBoxes corresponding to the solution list are selected with no extra selections
+     */
     public boolean checkSelect() {
         if (size != selected) {
             return false;
@@ -77,7 +108,10 @@ public class PuzGrid extends JPanel implements ActionListener {
         }
         return true;
     }
-
+    /**
+     *
+     * @param event
+     */
     @Override
     public void actionPerformed(ActionEvent event) {
         for (int i = 0; i < selections.size(); i++) {
