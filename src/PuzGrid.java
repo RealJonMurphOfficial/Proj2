@@ -5,9 +5,10 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.*;
 /**
- * Placeholder comment.
- * Add your name under author after working on this class.
- * @author Jonathan Murphy, Salim Jday,
+ * Represents a grid of selectable boxes in the puzzle.
+ * Tracks the selected boxes and provides methods for checking the selection status.
+ * Handles the grid component's layout and interaction.
+ * @author Jonathan Murphy, Salim Jday, Ian Chung
  */
 public class PuzGrid extends JPanel implements ActionListener {
     //Attributes
@@ -49,7 +50,7 @@ public class PuzGrid extends JPanel implements ActionListener {
             labels.get(gSolution.get(i)).setBackground(Color.GREEN);
         }
     }
-
+    //Getters
     public int getGSize() {
         return size;
     }
@@ -65,7 +66,7 @@ public class PuzGrid extends JPanel implements ActionListener {
     public ArrayList<String> getCatY() {
         return catY;
     }
-
+    //Checks if the selection is correct by comparison with the solution indicies.
     public boolean checkSelect() {
         if (size != selected) {
             return false;
