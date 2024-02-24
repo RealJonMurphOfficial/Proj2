@@ -2,7 +2,8 @@ import javax.swing.*;
 import java.awt.*;
 /**
  * Represents the selectable box of the puzzle grid.
- * Allows toggling the selection and updateing the button's color accordingly.
+ * Allows toggling the selection and updating the button's color accordingly.
+ * Provides a visual representation of a selectable box in the grid.
  * @author Jonathan Murphy, Salim Jday, Ian Chung
  */
 public class SelectBox {
@@ -14,22 +15,42 @@ public class SelectBox {
     public SelectBox() {
         this(42);
     }
+    /**
+     * Constructor.
+     * Creates a new selectable box with the specified ID.
+     * @param i The ID of the selectable box.
+     */
     public SelectBox(int i) {
         selected = false;
         id = i;
         button = new JButton("" + i);
     }
     //Getters
+    /**
+     * Basic getter.
+     * @return the selection state of the box. True if the box is selected, false otherwise.
+     */
     public boolean isSelected() {
         return selected;
     }
+    /**
+     * Basic getter.
+     * @return The ID of the box.
+     */
     public int getId() {
         return id;
     }
+    /**
+     * Basic getter.
+     * @return The button representing the box.
+     */
     public JButton getButton() {
         return button;
     }
-    //Toggles and updates the button color.
+    /**
+     * Toggles and updates the button color.
+     * @return The updated selection state of the box.
+     */
     public boolean toggle() {
         selected = !selected;
         button.setBackground(selected ? Color.GREEN : Color.WHITE);
