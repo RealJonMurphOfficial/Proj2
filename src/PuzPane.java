@@ -7,7 +7,7 @@ import javax.swing.*;
  * A JPanel that contains a basic puzzle game.
  * Loads a Puzzle object containing a number of grids of toggleable buttons.
  * Allows the user to request hints and check their answers at the push of a button
- * @author Jonathan Murphy, Salim Jday,
+ * @author Jonathan Murphy, Salim Jday
  * @version 1.0
  */
 public class PuzPane extends JPanel implements ActionListener {
