@@ -1,8 +1,10 @@
 import java.util.ArrayList;
 /**
+ * This abstract class represents a puzzle.
  * Placeholder comment.
  * Add your name under author after working on this class.
  * @author Jonathan Murphy, Ian Chung, Salim Jday
+ * @version 1.0
  */
 public abstract class Puzzle {
     //Attributes
@@ -11,6 +13,24 @@ public abstract class Puzzle {
     private ArrayList<PuzGrid> grids;
     private ArrayList<String> hints;
     //Methods
+
+    /**
+     * Default Constructor.
+     * Initializes the puzzle with default values.
+     */
+    public Puzzle() {
+        categories = 0;
+        items = 0;
+        clues = "";
+        grids = new ArrayList<>();
+        hints = new ArrayList<>();
+    }
+    /**
+     * Constructor.
+     * Initializes the puzzle with specified categories and items.
+     * @param nCat Number of categories
+     * @param nItem Number of items
+     */
     public Puzzle(int nCat, int nItem) {
         categories = nCat;
         items = nItem;
@@ -18,18 +38,44 @@ public abstract class Puzzle {
         hints = new ArrayList<>();
     }
     //getters and setters for use by subclasses
+
+    /**
+     * Getter for clues attribute.
+     * @return The clues of the puzzle
+     */
     public String getClues() {
         return clues;
     }
+
+    /**
+     * Getter for categories attribute.
+     * @return The number of categories in the puzzle
+     */
     public int getCategories() {
         return categories;
     }
+
+    /**
+     * Getter for items attribute.
+     * @return The number of items in the puzzle
+     */
     public int getItems() {
         return items;
     }
+
+    /**
+     * Retrieves the list of grids associated with this puzzle.
+     * @return An ArrayList containing the grids of the puzzle
+     */
     public ArrayList<PuzGrid> getGrids() {
         return grids;
     }
+
+    /**
+     * Retrieves a hint from the list of hints.
+     * If no hints are available, returns a default message.
+     * @return A hint if available, otherwise a default message
+     */
     public String showHint() {
         if (hints.isEmpty()) {
             return "No hints available.";
@@ -38,16 +84,38 @@ public abstract class Puzzle {
         hints.remove(0);
         return hint;
     }
+
+    /**
+     * Sets the clues for this puzzle.
+     * @param cList The clues to be set
+     */
     public void setClues(String cList) {
         clues = cList;
     }
+
+    /**
+     * Adds a grid to the list of grids.
+     * @param grid The grid to be added
+     */
     public void addGrid(PuzGrid grid) {
         grids.add(grid);
     }
+
+    /**
+     * Adds a hint to the list of hints.
+     * @param hint The hint to be added
+     */
     public void addHint(String hint) {
         hints.add(hint);
     }
+
+    /**
+     * Abstract method to be implemented by subclasses.
+     * Checks whether a selection is correct.
+     * @return true if the selection is correct, otherwise false
+     */
     public abstract boolean checkSelect();
+
     /**
      * Compares this Object to another.
      * @param o Object to be compared
